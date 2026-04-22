@@ -3,7 +3,6 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
-  workflow_dispatch:
 
 # 统一使用 Pages 权限
 permissions:
