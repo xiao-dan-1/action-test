@@ -1,0 +1,12 @@
+name: Minimal Action
+on: [push] # 监听 push 事件
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest # 分配一台最新的 Ubuntu 虚拟机
+    steps:
+      - name: Print Hello
+        run: echo "Action triggered successfully! 极简流程跑通。"
+      
+      - name: Check System Info
+        run: uname -a # 打印系统内核信息
