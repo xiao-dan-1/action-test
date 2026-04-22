@@ -1,4 +1,4 @@
-ame: Deploy Minimal Site
+name: Deploy Minimal Site
 on:
   push:
     branches: ["main"] # 生产环境的最佳实践：只有推送到 main 分支才触发发布
