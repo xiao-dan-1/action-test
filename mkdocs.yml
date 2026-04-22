@@ -1,0 +1,5 @@
+site_name: Xiaodan's Lab
+theme:
+  name: material
+  palette:
+    primary: indigo

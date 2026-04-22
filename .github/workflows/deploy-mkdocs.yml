@@ -1,0 +1,26 @@
+name: Deploy MkDocs Site
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write # MkDocs 需要将生成的 HTML 提交到一个名为 gh-pages 的隐藏分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+        
+      - name: Build and Deploy
+        # 这是官方封装好的一键部署命令，直接推送到 GitHub Pages
+        run: mkdocs gh-deploy --force
