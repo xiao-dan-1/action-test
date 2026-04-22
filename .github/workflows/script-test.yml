@@ -1,0 +1,13 @@
+name: Run Local Script
+on: [push]
+
+jobs:
+  run-code:
+    runs-on: ubuntu-latest
+    steps:
+      # 核心知识点：使用官方组件将代码“克隆”到虚拟机中
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+      
+      - name: Run my script
+        run: python3 main.py
