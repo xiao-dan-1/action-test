@@ -2,25 +2,36 @@ name: Deploy MkDocs Site
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
+# 统一使用 Pages 权限
 permissions:
-  contents: write # MkDocs 需要将生成的 HTML 提交到一个名为 gh-pages 的隐藏分支
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
           
-      - name: Install MkDocs Material
+      - name: Install dependencies
         run: pip install mkdocs-material
-        
-      - name: Build and Deploy
-        # 这是官方封装好的一键部署命令，直接推送到 GitHub Pages
-        run: mkdocs gh-deploy --force
+
+      - name: Build Site
+        # 仅仅是 build，不执行 deploy 命令，不产生新分支
+        run: mkdocs build 
+
+      - name: Upload Artifact
+        # 将生成的 site 文件夹（MkDocs 默认输出目录）打包
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
