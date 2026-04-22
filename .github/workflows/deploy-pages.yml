@@ -1,0 +1,30 @@
+ame: Deploy Minimal Site
+on:
+  push:
+    branches: ["main"] # 生产环境的最佳实践：只有推送到 main 分支才触发发布
+
+# ！！！核心知识点：权限提权！！！
+permissions:
+  pages: write      # 允许 Action 写入 GitHub Pages 生产环境
+  id-token: write   # 官方动作部署 Pages 所必需的安全验证令牌
+
+jobs:
+  deploy:
+    # 声明部署环境，方便在 GitHub 网页上查看部署历史和 URL
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. 拉取代码
+        uses: actions/checkout@v4
+      
+      - name: 2. 打包构建产物 (Artifact)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # 把当前根目录下的所有文件打包（也就是我们的 index.html）
+          
+      - name: 3. 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
