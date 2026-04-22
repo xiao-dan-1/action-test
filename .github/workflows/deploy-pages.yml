@@ -1,7 +1,9 @@
 name: Deploy Minimal Site
 on:
-  push:
-    branches: ["main"] # 生产环境的最佳实践：只有推送到 main 分支才触发发布
+  # 核心改动：删掉 push，只保留手动触发
+  workflow_dispatch:
+  #push:
+  # branches: ["main"] # 生产环境的最佳实践：只有推送到 main 分支才触发发布
 
 # ！！！核心知识点：权限提权！！！
 permissions:
