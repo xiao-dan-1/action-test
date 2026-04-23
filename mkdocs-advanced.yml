@@ -25,6 +25,8 @@ markdown_extensions:
   - pymdownx.superfences # 支持高级代码块
   - pymdownx.snippets # 支持代码折叠
   - admonition # 高级警告提示框 
+  - pymdownx.tasklist:          # 唤醒任务清单扩展
+      custom_checkbox: true     # 启用高颜值自定义 UI
 
 # 引入强大的自动化插件
 plugins:
