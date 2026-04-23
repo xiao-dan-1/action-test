@@ -1,4 +1,4 @@
-# 🧪 实验室设备与语法测试清单
+# 🚀 自动化实验室：全功能组件测试
 
 欢迎来到全功能展示页面。这篇文章包含了 Markdown 的各种高级语法，用来检验 MkDocs Material 主题在“极简”背后的强大渲染力。
 
@@ -9,6 +9,7 @@
 在网络工程的世界里，**“正确的前提下，极简优雅”** 是我们的最高指导原则。我们可以使用*斜体*来强调语气，或者使用~~删除线~~来标记过时的技术。
 
 > **架构师语录：**
+>
 > 任何可以通过代码自动化的流程，都不应该让人工去点击第二次。这就是 CI/CD 存在的意义。
 
 ## 2. 极客代码块 (带行号与高亮)
@@ -31,7 +32,7 @@ def deploy_blog(is_elegant: bool):
 **Linux 终端命令示例：**
 ```bash
 # 获取本机的 IPv6 出口地址
-curl -s -6 https://ifconfig.co
+curl -s -6 [https://ifconfig.co](https://ifconfig.co)
 
 # 检查 OpenWrt 路由表
 ip -6 route show
@@ -68,3 +69,28 @@ ip -6 route show
 
 !!! danger "绝对红线"
     无论在什么情况下，都**绝对不要**把你的服务器 SSH 私钥 (Private Key) 直接明文写在公开的 GitHub 仓库里！请务必使用 Actions Secrets。
+
+## 6. 可折叠详情框 (Details 插件)
+
+如果你有大段的辅助信息或冗长的日志，不要让它们占据主屏幕，把它们藏起来：
+
+??? note "点击展开：查看详细的诊断日志"
+    ```text
+    [INFO] Fetching origin...
+    [INFO] Analyzing branch 'main'
+    [WARNING] Skipped 3 unused variables.
+    [SUCCESS] Deployment completely elegant.
+    ```
+
+???+ warning "这是一个默认处于打开状态的折叠框"
+    注意看开头的符号是 `???+`。它默认展开，但你可以点击标题把它收纳起来，非常适合放长篇的前置声明。
+
+## 7. 外部片段注入 (Snippets 插件)
+
+这是极客最爱的魔法！下面这个代码块**并没有写在这篇 Markdown 里**，而是 Actions 在云端编译时，像剪刀一样自动从 `snippets/ipv6_check.sh` 文件里“剪切”过来的。
+
+**源文件永远同步，告别复制粘贴：**
+
+```bash
+--8<-- "docs/snippets/ipv6_check.sh"
+```
