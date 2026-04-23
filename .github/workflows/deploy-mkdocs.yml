@@ -23,7 +23,9 @@ jobs:
           python-version: 3.x
           
       - name: Install dependencies
-        run: pip install mkdocs-material
+        run: |
+          pip install mkdocs-material
+          pip install mkdocs-git-revision-date-localized-plugin
 
       - name: Build Site
         # 仅仅是 build，不执行 deploy 命令，不产生新分支
