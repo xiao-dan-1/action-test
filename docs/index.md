@@ -27,3 +27,44 @@ def deploy_blog(is_elegant: bool):
     else:
         raise Exception("Configuration is not minimal enough!")
 ```
+
+**Linux 终端命令示例：**
+```bash
+# 获取本机的 IPv6 出口地址
+curl -s -6 https://ifconfig.co
+
+# 检查 OpenWrt 路由表
+ip -6 route show
+```
+
+## 3. 任务清单 (Task Lists)
+
+使用任务清单可以清晰地追踪项目的进度。这也是 GitHub 原生极力推荐的格式：
+
+- [x] 搞懂 GitHub Actions 的三大核心组件
+- [x] 成功部署基础版 MkDocs 博客
+- [x] 实现 `mkdocs.yml` 与 `mkdocs-advanced.yml` 的优雅共存
+- [ ] 开发一个定时检测内网 IPv6 状态的爬虫机器人
+
+## 4. 数据表格 (Tables)
+
+在对比不同技术方案时，表格是最直观的展现形式：
+
+| 部署方案                       |  触发方式  | 状态隔离 |   优雅度评估   |
+| :----------------------------- | :--------: | :------: | :------------: |
+| 传统 FTP 上传                  |    手动    |   极差   |   ❌ 原始时代   |
+| 推送至 `gh-pages` 脏分支       |   `push`   |   一般   |   ⚠️ 勉强及格   |
+| **Actions Artifacts 内存打包** | **`push`** | **完美** | **✅ 极简优雅** |
+
+## 5. 高级警告提示框 (Admonitions)
+
+这是 Material 主题最标志性的功能！它可以让枯燥的文档瞬间拥有极高的辨识度。
+
+!!! tip "运维小贴士"
+    在配置 Cloudflare Zero Trust 时，请确保你的 WARP 客户端始终保持在最新版本，以获得最稳定的连接。
+
+!!! warning "配置警告"
+    修改 OpenWrt 的防火墙规则前，务必备份 `/etc/config/firewall` 文件。
+
+!!! danger "绝对红线"
+    无论在什么情况下，都**绝对不要**把你的服务器 SSH 私钥 (Private Key) 直接明文写在公开的 GitHub 仓库里！请务必使用 Actions Secrets。

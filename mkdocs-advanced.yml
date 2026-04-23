@@ -20,6 +20,7 @@ markdown_extensions:
       anchor_linenums: true # 代码块显示行号
   - pymdownx.superfences # 支持高级代码块
   - pymdownx.snippets # 支持代码折叠
+  - Admonition # 高级警告提示框 
 
 # 引入强大的自动化插件
 plugins:
