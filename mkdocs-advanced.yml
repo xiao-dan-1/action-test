@@ -5,15 +5,21 @@ theme:
   features:
     - content.code.copy          # 开启代码块一键复制原生特性
   palette:
-    - scheme: default            # 日间模式配置
+    # 日间模式（默认跟随系统浅色）
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: indigo
+      accent: blue               # (可选)      
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-sunny   
         name: 切换到夜间模式
-    - scheme: slate              # 夜间模式配置
-      primary: indigo
+    # 夜间模式（默认跟随系统深色）
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo 
+      accent: blue               # (可选)           
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night   
         name: 切换到日间模式
 
 markdown_extensions:
