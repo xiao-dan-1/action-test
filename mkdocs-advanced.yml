@@ -1,6 +1,9 @@
 site_name: Xiaodan's Lab
 theme:
   name: material
+  # 新增 features 开启高级 UI 特性
+  features:
+    - content.code.copy  # 开启一键复制按钮（配合插件使用）
   palette:
     # 开启日间/夜间模式切换按钮
     - scheme: default
@@ -18,6 +21,7 @@ theme:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true # 代码块显示行号
+      linenums: true # 强制全局显示行号
   - pymdownx.superfences # 支持高级代码块
   - pymdownx.snippets # 支持代码折叠
   - admonition # 高级警告提示框 
