@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Site
         # 仅仅是 build，不执行 deploy 命令，不产生新分支
-        run: mkdocs build 
+        run: mkdocs build -f mkdocs-advanced.yml # mkdocs build 自动搜索 
 
       - name: Upload Artifact
         # 将生成的 site 文件夹（MkDocs 默认输出目录）打包

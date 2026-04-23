@@ -1,0 +1,28 @@
+site_name: Xiaodan's Lab
+theme:
+  name: material
+  palette:
+    # 开启日间/夜间模式切换按钮
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到夜间模式
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到日间模式
+
+# 开启极客最爱的 Markdown 扩展功能
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true # 代码块显示行号
+  - pymdownx.superfences # 支持高级代码块
+  - pymdownx.snippets # 支持代码折叠
+
+# 引入强大的自动化插件
+plugins:
+  - search # 开启全站搜索
+  - git-revision-date-localized: # 自动读取 Git 记录生成时间
+      type: timeago # 显示格式为“2天前”、“3小时前”
