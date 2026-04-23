@@ -9,7 +9,7 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
-      accent: purple             # (可选)      
+      accent: blue             # (可选)      
       toggle:
         icon: material/weather-sunny   
         name: 切换到夜间模式
