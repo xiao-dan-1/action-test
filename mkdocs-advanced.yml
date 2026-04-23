@@ -27,7 +27,8 @@ markdown_extensions:
   - admonition # 高级警告提示框 
   - pymdownx.tasklist:          # 唤醒任务清单扩展
       custom_checkbox: true     # 启用高颜值自定义 UI
-  - pymdownx.tilde              # 开启波浪号（删除线/下标）解析
+  - pymdownx.tilde:             # 开启波浪号（删除线/下标）解析
+      smart_symbol: false       # 关闭英文智能边界检测，完美兼容中文连写
 
 # 引入强大的自动化插件
 plugins:
