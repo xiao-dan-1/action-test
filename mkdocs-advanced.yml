@@ -18,7 +18,8 @@ theme:
 
 markdown_extensions:
   - admonition                   # 开启高级警告提示框
-  - pymdownx.details             # 开启折叠框支持 (替代错误的 snippets)
+  - pymdownx.details             # 开启折叠框支持
+  - pymdownx.snippets            # 外部注入
   - pymdownx.superfences         # 支持高级代码块与嵌套
   - pymdownx.highlight:          # 代码高亮引擎
       anchor_linenums: true
